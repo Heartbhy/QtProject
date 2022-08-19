@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include <QMouseEvent>
 #include "chatmessage/qnchatmessage.h"
 
 namespace Ui {
@@ -21,11 +22,20 @@ public:
     void dealMessageTime(QString curMsgTime);
 protected:
     void resizeEvent(QResizeEvent *event);
+
+    void mousePressEvent(QMouseEvent *event);
+
+    void mouseMoveEvent(QMouseEvent *event);
 private slots:
     void on_pushButton_clicked();
 
+    void on_toolButton_2_clicked();
+
+    void on_toolButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QPoint m_point;
 };
 
 #endif // MAINWINDOW_H

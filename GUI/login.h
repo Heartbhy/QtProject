@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QGraphicsDropShadowEffect>
 #include <QMouseEvent>
+#include <QPoint>
 
 namespace Ui {
 class Login;
@@ -20,6 +21,11 @@ public:
     explicit Login(QWidget *parent = 0);
     ~Login();
 
+protected:
+    void mousePressEvent(QMouseEvent *event);
+
+    void mouseMoveEvent(QMouseEvent *event);
+
 private slots:
     void on_logbtn_clicked();
 
@@ -27,8 +33,11 @@ private slots:
 
     void on_closebtn_clicked();
 
+    void on_minimizedbtn_clicked();
+
 private:
     Ui::Login *ui;
+    QPoint m_point;
 };
 
 #endif // LOGIN_H

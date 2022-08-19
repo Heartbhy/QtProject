@@ -50,3 +50,29 @@ void Login::on_registerbtn_clicked()
     r->show();
     this->close();
 }
+
+void Login::mousePressEvent(QMouseEvent *event){
+    if(event->button() == Qt::LeftButton)
+    {
+        m_point = event->globalPos() - pos(); //计算移动量
+        event->accept();
+    }
+}
+
+void Login::mouseMoveEvent(QMouseEvent *event){
+    if(event->buttons() & Qt::LeftButton)
+    {
+        move(event->globalPos() - m_point);
+        event->accept();
+    }
+}
+
+void Login::on_minimizedbtn_clicked()
+{
+    this->showMinimized();
+}
+
+void Login::on_closebtn_clicked()
+{
+    this->close();
+}

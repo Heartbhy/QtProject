@@ -50,3 +50,29 @@ void Register::on_backbtn_clicked()
     l->show();
     this->close();
 }
+
+void Register::mousePressEvent(QMouseEvent *event){
+    if(event->button() == Qt::LeftButton)
+    {
+        m_point = event->globalPos() - pos(); //计算移动量
+        event->accept();
+    }
+}
+
+void Register::mouseMoveEvent(QMouseEvent *event){
+    if(event->buttons() & Qt::LeftButton)
+    {
+        move(event->globalPos() - m_point);
+        event->accept();
+    }
+}
+
+void Register::on_toolButton_clicked()
+{
+    this->showMinimized();
+}
+
+void Register::on_toolButton_2_clicked()
+{
+    this->close();
+}
